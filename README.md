@@ -1,1 +1,2 @@
-<h2>Java Movies Database project
+<h2>Movies Database</h2>
+Java project made with JPA and MyBatis
