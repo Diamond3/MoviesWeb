@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<h:body>
+    <h2>#{reviewsForMovie.movie.title}</h2>
+    <ol>
+        <ui:repeat value="#{reviewsForMovieMyBatis.movie.reviews}" var="review">
+            <li>#{review.name}: #{review.text}</li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText a:placeholder="name" value="#{reviewsForMovie.reviewToCreate.name}" required="true" />
+        <h:inputText a:placeholder="text" value="#{reviewsForMovie.reviewToCreate.text}" required="true" />
+        <h:commandButton value="Add review" action="#{reviewsForMovie.createReview}" >
+            <f:param name="movieId" value="#{reviewsForMovie.movie.id}" />
+        </h:commandButton>
+    </h:form>
+    <h:link outcome="/myBatis/movies" value="Back to movies page"/>
+</h:body>
+</html>

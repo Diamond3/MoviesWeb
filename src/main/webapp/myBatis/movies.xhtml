@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head/>
+<h:body>
+    <h2>Movies:</h2>
+    <ol>
+        <ui:repeat value="#{moviesMyBatis.allMovies}" var="movie">
+            <li><h:link value="#{movie.title}" outcome="reviews?movieId=#{movie.id}" /></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText value="#{moviesMyBatis.movieToCreate.title}" required="true" />
+        <h:commandButton value="Add new movie" action="#{moviesMyBatis.createMovie}" />
+    </h:form>
+    <h:link value="Back to index" outcome="/index"/>
+</h:body>
+</html>
